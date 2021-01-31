@@ -118,7 +118,6 @@ class Topics extends Component {
         );
         const list = (
             <ul className="c-sidebar__list">
-                <li>{link('/', tt('g.all_tags'))}</li>
                 {/*{username && (
                     <li>{link(`/@${username}/feed`, 'My friends')}</li>
                 )}
