@@ -182,6 +182,27 @@ app.use(function*(next) {
         return;
     }
 
+    if (this.method === 'GET' && this.url === '/created') {
+        this.status = 302;
+        //this.redirect(`/@${this.session.a}/feed`);
+        this.redirect(`/created/hive-137178`);
+        return;
+    }
+
+    if (this.method === 'GET' && this.url === '/hot') {
+        this.status = 302;
+        //this.redirect(`/@${this.session.a}/feed`);
+        this.redirect(`/hot/hive-137178`);
+        return;
+    }
+
+    if (this.method === 'GET' && this.url === '/trending') {
+        this.status = 302;
+        //this.redirect(`/@${this.session.a}/feed`);
+        this.redirect(`/trending/hive-137178`);
+        return;
+    }
+
     // normalize user name url from cased params
     if (
         this.method === 'GET' &&
