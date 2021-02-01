@@ -239,6 +239,7 @@ export default class UserProfile extends React.Component {
             tab_content = <Callout>{emptyText}</Callout>;
         } else {
             // post lists -- loaded
+
             tab_content = (
                 <PostsList
                     post_refs={posts}

@@ -119,6 +119,8 @@ class PostsList extends React.Component {
 
         const renderSummary = items =>
             items.map((post, i) => {
+                
+                console.log('category is kalawu ' + post.get('category'))
                 const ps = (
                     <PostSummary
                         post={post}
@@ -130,7 +132,7 @@ class PostsList extends React.Component {
                 );
 
                 const summary = [];
-                summary.push(<li key={i}>{ps}</li>);
+                if (post.get('category') === 'hive-137178') {summary.push(<li key={i}>{ps}</li>)};
 
                 const every = this.props.adSlots.in_feed_1.every;
                 if (false && this.props.videoAdsEnabled && i === 4) {

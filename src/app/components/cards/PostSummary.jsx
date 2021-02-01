@@ -76,6 +76,7 @@ class PostSummary extends React.Component {
 
         const { ignore, hideCategory, net_vests } = this.props;
         const { post } = this.props;
+
         if (!post) return null;
 
         let reblogged_by;

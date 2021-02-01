@@ -18,16 +18,16 @@ export default class NotFoundMessage extends React.Component {
                     </p>
                     <ul className="NotFound__menu">
                         <li>
-                            <a href="/created">new posts</a>
+                            <a href="/created/hive-137178">new posts</a>
                         </li>
                         <li>
-                            <a href="/hot">hot posts</a>
+                            <a href="/hot/hive-137178">hot posts</a>
                         </li>
                         <li>
-                            <a href="/trending">trending posts</a>
+                            <a href="/trending/hive-137178">trending posts</a>
                         </li>
                         <li>
-                            <a href="/promoted">promoted posts</a>
+                            <a href="/promoted/hive-137178">promoted posts</a>
                         </li>
                     </ul>
                 </div>
