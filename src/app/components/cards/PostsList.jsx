@@ -120,7 +120,6 @@ class PostsList extends React.Component {
         const renderSummary = items =>
             items.map((post, i) => {
                 
-                console.log('category is kalawu ' + post.get('category'))
                 const ps = (
                     <PostSummary
                         post={post}
