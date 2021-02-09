@@ -1,5 +1,5 @@
 {
-    "name": "Golos",
+    "name": "App",
     "icons": [
         {
             "src": "/images/favicons/android-chrome-192x192.png",
@@ -11,7 +11,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "theme_color": "#ffffff",
-    "display": "standalone"
+    ]
 }

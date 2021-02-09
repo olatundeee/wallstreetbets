@@ -800,39 +800,8 @@ function* uploadImage({
         formData.append('filebase64', dataBs64);
     }
 
-    let sig;
-    let postUrl;
-    if (hiveSignerLogin) {
-        // verify user with access_token for HiveSigner login
-        postUrl = `${$STM_Config.upload_image}/hs/${
-            hiveSignerClient.accessToken
-        }`;
-    } else {
-        if (keychainLogin) {
-            const response = yield new Promise(resolve => {
-                window.hive_keychain.requestSignBuffer(
-                    username,
-                    JSON.stringify(buf),
-                    'Posting',
-                    response => {
-                        resolve(response);
-                    }
-                );
-            });
-            if (response.success) {
-                sig = response.result;
-            } else {
-                progress({ error: response.message });
-                return;
-            }
-        } else {
-            sig = Signature.signBufferSha256(bufSha, d).toHex();
-        }
-        postUrl = `${$STM_Config.upload_image}/${username}/${sig}`;
-    }
-
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', postUrl);
+    xhr.open('POST', `https://img-standupx.3speak.co/${username}/${bufSha}`);
     xhr.onload = function() {
         console.log(xhr.status, xhr.responseText);
         if (xhr.status === 200) {

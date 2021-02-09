@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import NativeSelect from 'app/components/elements/NativeSelect';
 import { fromJS } from 'immutable';
 import wsbTopics from '../../utils/Topics';
-
+ 
 class Topics extends Component {
     static propTypes = {
         topics: PropTypes.object.isRequired,
@@ -149,9 +149,35 @@ class Topics extends Component {
             </ul>
         );
 
+        /*const twitterComp = () => {
+            const anchor = document.createElement("a");
+            anchor.setAttribute("class", "twitter-timeline");
+            anchor.setAttribute("data-theme", "dark");
+            anchor.setAttribute("data-tweet-limit", "5");
+            anchor.setAttribute("data-chrome", "noheader nofooter noborders");
+            anchor.setAttribute("href", "https://twitter.com/HeyMarkKop");
+            document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);
+
+            const script = document.createElement("script");
+            script.setAttribute("src", "https://platform.twitter.com/widgets.js");
+            document.getElementsByClassName("twitter-embed")[0].appendChild(script);
+
+            return (
+                <section className="twitterContainer">
+                  <div className="twitter-embed"></div>
+                </section>
+            );
+        }*/
+
         return (
-            <div className="c-sidebar__module">
-                <div className="c-sidebar__content">{list}</div>
+            <div> 
+                <div className="c-sidebar__module">
+                    <div className="c-sidebar__content">{list}</div>
+                </div>
+                
+                {/*<div className="c-sidebar__module">
+                    <div className="c-sidebar__content">{twitterComp}</div>
+                </div>*/}
             </div>
         );
     }

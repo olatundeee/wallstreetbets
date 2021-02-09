@@ -9,23 +9,28 @@ import { proxifyImageUrl } from 'app/utils/ProxifyUrl';
 const proxify = (url, size) => proxifyImageUrl(url, size).replace(/ /g, '%20');
 
 const site_desc =
-    'Communities without borders. A social network owned and operated by its users, powered by Hive.';
+    'Like 4chan found a bloomberg terminal. The Official Mods Twitter is @wsbmod. A budding community of over 7.4 million degenerates.';
+
+const platform_name = 'WallStreetBets';
+const domain = 'wsb.3speak.co/';
+const seo_image = `//${domain}/images/wsblogo.png`;
+    
 
 function addSiteMeta(metas) {
-    metas.push({ title: 'Hive' });
+    metas.push({ title: 'WallStreetBets' });
     metas.push({ name: 'description', content: site_desc });
     metas.push({ property: 'og:type', content: 'website' });
-    metas.push({ property: 'og:site_name', content: 'Hive' });
-    metas.push({ property: 'og:title', content: 'Hive' });
+    metas.push({ property: 'og:site_name', content: 'WallStreetBets' });
+    metas.push({ property: 'og:title', content: 'WallStreetBets' });
     metas.push({ property: 'og:description', content: site_desc });
     metas.push({
         property: 'og:image',
-        content: 'https://hive.blog/images/hive-blog-share.png',
+        content: seo_image,
     });
     metas.push({ property: 'fb:app_id', content: $STM_Config.fb_app });
     metas.push({ name: 'twitter:card', content: 'summary' });
-    metas.push({ name: 'twitter:site', content: '@hiveblocks' });
-    metas.push({ name: 'twitter:title', content: '#Hive.io' });
+    metas.push({ name: 'twitter:site', content: '@wsbmod' });
+    metas.push({ name: 'twitter:title', content: '#WSB' });
     metas.push({ name: 'twitter:description', site_desc });
     metas.push({
         name: 'twitter:image',
@@ -38,7 +43,7 @@ function addPostMeta(metas, content, profile) {
     const { category, created, body, json_metadata } = content;
     const isReply = content.depth > 0;
 
-    const title = content.title + ' — Hive';
+    const title = content.title + ' — WallStreetBets';
     const desc =
         getPostSummary(json_metadata, body, isReply) + ' by ' + content.author;
     const image_link = extractImageLink(json_metadata, body);
@@ -58,12 +63,10 @@ function addPostMeta(metas, content, profile) {
     metas.push({ name: 'og:url', content: localUrl });
     metas.push({
         name: 'og:image',
-        content:
-            proxify(image, '1200x630') ||
-            'https://hive.blog/images/hive-blog-share.png',
+        content: proxify(image, '1200x630') || seo_image,
     });
     metas.push({ name: 'og:description', content: desc });
-    metas.push({ name: 'og:site_name', content: 'Hive' });
+    metas.push({ name: 'og:site_name', content: 'WallStreetBets' });
     metas.push({ name: 'fb:app_id', content: $STM_Config.fb_app });
     metas.push({ name: 'article:tag', content: category });
     metas.push({
@@ -76,14 +79,12 @@ function addPostMeta(metas, content, profile) {
         name: 'twitter:card',
         content: image ? 'summary_large_image' : 'summary',
     });
-    metas.push({ name: 'twitter:site', content: '@hiveblocks' });
+    metas.push({ name: 'twitter:site', content: '@wsbmod' });
     metas.push({ name: 'twitter:title', content: title });
     metas.push({ name: 'twitter:description', content: desc });
     metas.push({
         name: 'twitter:image',
-        content:
-            proxify(image, '1200x630') ||
-            'https://hive.blog/images/hive-blog-twshare.png',
+        content: proxify(image, '1200x630') || seo_image,
     });
 }
 
@@ -91,9 +92,11 @@ function addAccountMeta(metas, accountname, profile) {
     let { name, about, profile_image } = profile;
 
     name = name || accountname;
-    about = about || 'Hive: Communities Without Borders.';
-    profile_image =
-        profile_image || 'https://hive.blog/images/hive-blog-twshare.png';
+    about =
+        about ||
+        'Like 4chan found a bloomberg terminal. The Official Mods Twitter is @wsbmod. A budding community of over 7.4 million degenerates';
+        profile_image = profile_image || seo_image;
+
 
     // Set profile tags
     const title = `@${accountname}`;
@@ -106,7 +109,7 @@ function addAccountMeta(metas, accountname, profile) {
 
     // Twitter card data
     metas.push({ name: 'twitter:card', content: 'summary' });
-    metas.push({ name: 'twitter:site', content: '@hiveblocks' });
+    metas.push({ name: 'twitter:site', content: '@wsbmod' });
     metas.push({ name: 'twitter:title', content: title });
     metas.push({ name: 'twitter:description', content: desc });
     metas.push({ name: 'twitter:image', content: profile_image });
