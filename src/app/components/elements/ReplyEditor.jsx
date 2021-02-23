@@ -1398,8 +1398,9 @@ export default (formId) =>
 
         // mapDispatchToProps
         (dispatch) => ({
-            uploadImage: (file, progress) =>
-                dispatch(userActions.uploadImage({ file, progress })),
+            uploadImage: (file, progress) =>{
+                dispatch(userActions.uploadImage({ file, progress }))
+            },
             showAdvancedSettings: (formId) =>
                 dispatch(userActions.showPostAdvancedSettings({ formId })),
             setPayoutType: (formId, payoutType) =>

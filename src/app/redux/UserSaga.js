@@ -828,7 +828,7 @@ function* uploadImage({
         }
     };
     xhr.onerror = function(error) {
-        console.error('xhr', filename, error);
+        console.log('xhr', filename, error);
         progress({ error: 'Unable to contact the server.' });
     };
     xhr.upload.onprogress = function(event) {
